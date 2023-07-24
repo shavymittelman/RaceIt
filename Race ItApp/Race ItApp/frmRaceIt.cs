@@ -79,8 +79,11 @@ namespace Race_ItApp
         {
             string advancestring = btnDie.Text;
             int.TryParse(advancestring, out int advancenumber);
+            //AF This variable name is very long so it's hard to read, I think you can shorten it a bit
             List<Label> labelstobefilled = list.Where(lst => lst.BackColor.Equals(Color.Gainsboro)).Take(advancenumber).ToList();
             labelstobefilled.ForEach(lst => lst.BackColor = turnscolor);
+            /*AF It would be good to refactor the code below.  It would be more efficient to only call HitSymbol once, and you can have if statements inside
+             * that procedure on what to do based on the text of that last button, instead of calling it 3 times here*/
             HitSymbol(labelstobefilled, list, turnscolor, SymbolEnum.A, 2);
             HitSymbol(labelstobefilled, list, turnscolor, SymbolEnum.G, 1);
             if (labelstobefilled.LastOrDefault().Text == SymbolEnum.H.ToString())
