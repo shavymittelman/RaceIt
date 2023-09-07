@@ -49,16 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="RaceItGame.xaml.cs">
-	    <DependentUpon>RaceItGame.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="RaceIt.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="RaceItGame.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
