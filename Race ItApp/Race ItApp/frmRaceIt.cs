@@ -35,6 +35,7 @@ namespace Race_ItApp
                 lblBlue1, lblBlue2, lblBlue3, lblBlue4, lblBlue5, lblBlue6, lblBlue7, lblBlue8, lblBlue9, lblBlue10,
                 lblBlue11, lblBlue12, lblBlue13, lblBlue14, lblBlue15, lblBlue16, lblBlue17, lblBlue18, lblBlue19, lblBlue20
             };
+
         }
 
         private void NotPlaying()
@@ -46,7 +47,6 @@ namespace Race_ItApp
         private void RandomSymbol(List<Label> list)
         {
             list.ForEach(lst => lst.Text = "");
-            //List<Label> lstrndlabel = new() {  }
             int randomlbl1 = rnd.Next(2, list.Count);
             int randomlbl2 = rnd.Next(2, list.Count);
             int randomlbl3 = rnd.Next(2, list.Count);
@@ -66,7 +66,7 @@ namespace Race_ItApp
         {
             lblStatus.Text = color + "'s turn to race!";
         }
-        
+
         private void HitSymbol(List<Label> labelstobefilled, List<Label> turnslist, Color turnscolor, Enum symbolenum, int takeamount)
         {
             if (labelstobefilled.LastOrDefault().Text == symbolenum.ToString())
@@ -85,7 +85,18 @@ namespace Race_ItApp
             HitSymbol(labelstobefilled, list, turnscolor, SymbolEnum.G, 1);
             if (labelstobefilled.LastOrDefault().Text == SymbolEnum.H.ToString())
             {
-                list.Where(lst => lst.BackColor.Equals(turnscolor)).TakeLast(1).ToList().ForEach(lst => lst.BackColor = Color.Gainsboro);
+                //foreach (Label l in labelstobefilled)
+                //{
+                    //if (l.Name == "lblRed20" || l.Name == "lblBlue20")
+                    //if()
+                    //{
+                    //    return;
+                    //}
+                    //else
+                    //{
+                        list.Where(lst => lst.BackColor.Equals(turnscolor)).TakeLast(1).ToList().ForEach(lst => lst.BackColor = Color.Gainsboro);
+                //    }
+                //}
             }
         }
 
