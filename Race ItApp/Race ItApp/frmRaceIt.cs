@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace Race_ItApp
 {
@@ -35,7 +27,7 @@ namespace Race_ItApp
                 lblBlue1, lblBlue2, lblBlue3, lblBlue4, lblBlue5, lblBlue6, lblBlue7, lblBlue8, lblBlue9, lblBlue10,
                 lblBlue11, lblBlue12, lblBlue13, lblBlue14, lblBlue15, lblBlue16, lblBlue17, lblBlue18, lblBlue19, lblBlue20
             };
-
+            
         }
 
         private void NotPlaying()
@@ -67,40 +59,37 @@ namespace Race_ItApp
             lblStatus.Text = color + "'s turn to race!";
         }
 
-        private void HitSymbol(List<Label> labelstobefilled, List<Label> turnslist, Color turnscolor, Enum symbolenum, int takeamount)
+        private void HitSymbol(List<Label> filllabels, List<Label> turnslist, Color turnscolor)
         {
-            if (labelstobefilled.LastOrDefault().Text == symbolenum.ToString())
+            Label lastlabel = turnslist.LastOrDefault();
+            if (filllabels.LastOrDefault().Text == SymbolEnum.A.ToString())
             {
-                turnslist.Where(lst => lst.BackColor.Equals(Color.Gainsboro)).Take(takeamount).ToList().ForEach(lst => lst.BackColor = turnscolor);
+                turnslist.Where(lst => lst.BackColor.Equals(Color.Gainsboro)).Take(2).ToList().ForEach(lst => lst.BackColor = turnscolor);
             }
+            if (filllabels.LastOrDefault().Text == SymbolEnum.G.ToString())
+            {
+                turnslist.Where(lst => lst.BackColor.Equals(Color.Gainsboro)).Take(1).ToList().ForEach(lst => lst.BackColor = turnscolor);
+            }                
+            if (filllabels.LastOrDefault().Text == SymbolEnum.H.ToString() && filllabels.LastOrDefault() != lastlabel)
+            {
+                turnslist.Where(lst => lst.BackColor.Equals(turnscolor)).TakeLast(1).ToList().ForEach(lst => lst.BackColor = Color.Gainsboro);
+            }            
         }
 
         private void FillSquares(List<Label> list, Color turnscolor)
         {
             string advancestring = btnDie.Text;
-            int.TryParse(advancestring, out int advancenumber);
+            int.TryParse(advancestring, out int advancenumber);   
+
             //AF This variable name is very long so it's hard to read, I think you can shorten it a bit
-            List<Label> labelstobefilled = list.Where(lst => lst.BackColor.Equals(Color.Gainsboro)).Take(advancenumber).ToList();
-            labelstobefilled.ForEach(lst => lst.BackColor = turnscolor);
+
+            List<Label> filllabels = list.Where(lst => lst.BackColor.Equals(Color.Gainsboro)).Take(advancenumber).ToList();
+            filllabels.ForEach(lst => lst.BackColor = turnscolor);
+
             /*AF It would be good to refactor the code below.  It would be more efficient to only call HitSymbol once, and you can have if statements inside
              * that procedure on what to do based on the text of that last button, instead of calling it 3 times here*/
-            HitSymbol(labelstobefilled, list, turnscolor, SymbolEnum.A, 2);
-            HitSymbol(labelstobefilled, list, turnscolor, SymbolEnum.G, 1);
-            if (labelstobefilled.LastOrDefault().Text == SymbolEnum.H.ToString())
-            {
-                //foreach (Label l in labelstobefilled)
-                //{
-                    //if (l.Name == "lblRed20" || l.Name == "lblBlue20")
-                    //if()
-                    //{
-                    //    return;
-                    //}
-                    //else
-                    //{
-                        list.Where(lst => lst.BackColor.Equals(turnscolor)).TakeLast(1).ToList().ForEach(lst => lst.BackColor = Color.Gainsboro);
-                //    }
-                //}
-            }
+
+            HitSymbol(filllabels, list, turnscolor);
         }
 
         private void SwitchTurn()
