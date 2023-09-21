@@ -9,62 +9,63 @@
             <Setter Property="MaximumWidthRequest" Value="100"/>
         </Style>
         <Style TargetType="Label">
-            <Setter Property="BackgroundColor" Value="LightGreen"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="WINGDING"/>
         </Style>
     </ContentPage.Resources>
-    <Grid ColumnDefinitions="*,*,*" RowDefinitions="100, *" BackgroundColor="LightGrey">
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="100, *" BackgroundColor="Lavender">
         <Button Grid.Column="0" Grid.Row="0" 
-                x:Name="btnStart" Text="Start" BackgroundColor="LimeGreen" 
+                x:Name="btnStart" Text="Start" BackgroundColor="LimeGreen"  Clicked="btnStart_Clicked"
                 />
         <Label Grid.Column="1" Grid.Row="0" 
-                x:Name="lblStatus"
+                x:Name="lblStatus" Text="{Binding msg}" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular"
                 />
         <Button Grid.Column="2" Grid.Row="0"
-                x:Name="btnDie" Text="Die" BackgroundColor="White" 
+                x:Name="btnDie" Text="{Binding txtdie}" IsEnabled="{Binding isenabled}" BackgroundColor="White" Clicked="btnDie_Clicked" 
                 />
-        <Grid Margin="30" ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
-            <Label Text="1"  Grid.Column="0" Grid.Row="12"/>
-            <Label Text="2"  Grid.Column="1" Grid.Row="12"/>
-            <Label Text="3"  Grid.Column="2" Grid.Row="12"/>
-            <Label Text="4"  Grid.Column="2" Grid.Row="11"/>
-            <Label Text="5"  Grid.Column="2" Grid.Row="10"/>
-            <Label Text="6"  Grid.Column="1" Grid.Row="10"/>
-            <Label Text="7"  Grid.Column="1" Grid.Row="9"/>
-            <Label Text="8"  Grid.Column="1" Grid.Row="8"/>
-            <Label Text="9"  Grid.Column="2" Grid.Row="8"/>
-            <Label Text="10" Grid.Column="2" Grid.Row="7"/>
-            <Label Text="11" Grid.Column="2" Grid.Row="6"/>
-            <Label Text="12" Grid.Column="1" Grid.Row="6"/>
-            <Label Text="13" Grid.Column="1" Grid.Row="5"/>
-            <Label Text="14" Grid.Column="1" Grid.Row="4"/>
-            <Label Text="15" Grid.Column="2" Grid.Row="4"/>
-            <Label Text="16" Grid.Column="2" Grid.Row="3"/>
-            <Label Text="17" Grid.Column="2" Grid.Row="2"/>
-            <Label Text="18" Grid.Column="1" Grid.Row="2"/>
-            <Label Text="19" Grid.Column="1" Grid.Row="1"/>
-            <Label Text="20" Grid.Column="1" Grid.Row="0"/>
+        <Grid Margin="30" ColumnDefinitions="*,*,*,3*,*,*,*" RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+            <Label x:Name="lblRed1"  Grid.Column="0" Grid.Row="12" BindingContext="{Binding lstspots[0]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed2"  Grid.Column="1" Grid.Row="12" BindingContext="{Binding lstspots[1]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed3"  Grid.Column="2" Grid.Row="12" BindingContext="{Binding lstspots[2]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed4"  Grid.Column="2" Grid.Row="11" BindingContext="{Binding lstspots[3]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed5"  Grid.Column="2" Grid.Row="10" BindingContext="{Binding lstspots[4]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed6"  Grid.Column="1" Grid.Row="10" BindingContext="{Binding lstspots[5]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed7"  Grid.Column="1" Grid.Row="9"  BindingContext="{Binding lstspots[6]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed8"  Grid.Column="1" Grid.Row="8"  BindingContext="{Binding lstspots[7]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed9"  Grid.Column="2" Grid.Row="8"  BindingContext="{Binding lstspots[8]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed10" Grid.Column="2" Grid.Row="7"  BindingContext="{Binding lstspots[9]}"  Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed11" Grid.Column="2" Grid.Row="6"  BindingContext="{Binding lstspots[10]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed12" Grid.Column="1" Grid.Row="6"  BindingContext="{Binding lstspots[11]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed13" Grid.Column="1" Grid.Row="5"  BindingContext="{Binding lstspots[12]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed14" Grid.Column="1" Grid.Row="4"  BindingContext="{Binding lstspots[13]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed15" Grid.Column="2" Grid.Row="4"  BindingContext="{Binding lstspots[14]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed16" Grid.Column="2" Grid.Row="3"  BindingContext="{Binding lstspots[15]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed17" Grid.Column="2" Grid.Row="2"  BindingContext="{Binding lstspots[16]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed18" Grid.Column="1" Grid.Row="2"  BindingContext="{Binding lstspots[17]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed19" Grid.Column="1" Grid.Row="1"  BindingContext="{Binding lstspots[18]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblRed20" Grid.Column="1" Grid.Row="0"  BindingContext="{Binding lstspots[19]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
 
-            <Label Text="1"  Grid.Column="6" Grid.Row="12"/>
-            <Label Text="2"  Grid.Column="5" Grid.Row="12"/>
-            <Label Text="3"  Grid.Column="4" Grid.Row="12"/>
-            <Label Text="4"  Grid.Column="4" Grid.Row="11"/>
-            <Label Text="5"  Grid.Column="4" Grid.Row="10"/>
-            <Label Text="6"  Grid.Column="5" Grid.Row="10"/>
-            <Label Text="7"  Grid.Column="5" Grid.Row="9"/>
-            <Label Text="8"  Grid.Column="5" Grid.Row="8"/>
-            <Label Text="9"  Grid.Column="4" Grid.Row="8"/>
-            <Label Text="10" Grid.Column="4" Grid.Row="7"/>
-            <Label Text="11" Grid.Column="4" Grid.Row="6"/>
-            <Label Text="12" Grid.Column="5" Grid.Row="6"/>
-            <Label Text="13" Grid.Column="5" Grid.Row="5"/>
-            <Label Text="14" Grid.Column="5" Grid.Row="4"/>
-            <Label Text="15" Grid.Column="4" Grid.Row="4"/>
-            <Label Text="16" Grid.Column="4" Grid.Row="3"/>
-            <Label Text="17" Grid.Column="4" Grid.Row="2"/>
-            <Label Text="18" Grid.Column="5" Grid.Row="2"/>
-            <Label Text="19" Grid.Column="5" Grid.Row="1"/>
-            <Label Text="20" Grid.Column="5" Grid.Row="0"/>
+            <Label x:Name="lblBlue1"  Grid.Column="6" Grid.Row="12" BindingContext="{Binding lstspots[20]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue2"  Grid.Column="5" Grid.Row="12" BindingContext="{Binding lstspots[21]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue3"  Grid.Column="4" Grid.Row="12" BindingContext="{Binding lstspots[22]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue4"  Grid.Column="4" Grid.Row="11" BindingContext="{Binding lstspots[23]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue5"  Grid.Column="4" Grid.Row="10" BindingContext="{Binding lstspots[24]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue6"  Grid.Column="5" Grid.Row="10" BindingContext="{Binding lstspots[25]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue7"  Grid.Column="5" Grid.Row="9"  BindingContext="{Binding lstspots[26]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue8"  Grid.Column="5" Grid.Row="8"  BindingContext="{Binding lstspots[27]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue9"  Grid.Column="4" Grid.Row="8"  BindingContext="{Binding lstspots[28]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue10" Grid.Column="4" Grid.Row="7"  BindingContext="{Binding lstspots[29]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue11" Grid.Column="4" Grid.Row="6"  BindingContext="{Binding lstspots[30]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue12" Grid.Column="5" Grid.Row="6"  BindingContext="{Binding lstspots[31]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue13" Grid.Column="5" Grid.Row="5"  BindingContext="{Binding lstspots[32]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue14" Grid.Column="5" Grid.Row="4"  BindingContext="{Binding lstspots[33]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue15" Grid.Column="4" Grid.Row="4"  BindingContext="{Binding lstspots[34]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue16" Grid.Column="4" Grid.Row="3"  BindingContext="{Binding lstspots[35]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue17" Grid.Column="4" Grid.Row="2"  BindingContext="{Binding lstspots[36]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue18" Grid.Column="5" Grid.Row="2"  BindingContext="{Binding lstspots[37]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue19" Grid.Column="5" Grid.Row="1"  BindingContext="{Binding lstspots[38]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
+            <Label x:Name="lblBlue20" Grid.Column="5" Grid.Row="0"  BindingContext="{Binding lstspots[39]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
 
         </Grid>
     </Grid>

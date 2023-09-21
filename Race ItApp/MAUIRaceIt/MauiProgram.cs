@@ -1,4 +1,6 @@
-﻿namespace MAUIRaceIt
+﻿using Microsoft.Maui.Controls;
+
+namespace MAUIRaceIt
 {
     public static class MauiProgram
     {
@@ -11,6 +13,7 @@
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("WINGDING.ttf", "WINGDING");
                 });
 
             return builder.Build();
