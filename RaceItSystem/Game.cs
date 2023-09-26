@@ -7,6 +7,7 @@ namespace RaceItSystem
     public class Game : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+        public event EventHandler? ScoreChanged;
         public enum SymbolEnum { A, G, H }
         public enum TurnEnum { Red, Blue }
         private Random rnd = new();
@@ -16,7 +17,8 @@ namespace RaceItSystem
         private string _txtdie = "Die";
         private string _msg = "";
         private bool _isenabled;
-
+        private static int redwins;
+        private static int bluewins;
         public Game()
         {
             lstspots = new();
@@ -44,6 +46,7 @@ namespace RaceItSystem
         private System.Drawing.Color colorred { get; set; } = System.Drawing.Color.Red;
         private System.Drawing.Color colorblue { get; set; } = System.Drawing.Color.Blue;
         private System.Drawing.Color colorempty { get; set; } = System.Drawing.Color.Gainsboro;
+        public static string Score { get => $"Red wins = {redwins} Blue wins = {bluewins}"; }
         public bool isenabled
         {
             get => _isenabled;
@@ -109,6 +112,15 @@ namespace RaceItSystem
             {
                 msg = color + " Won!!!!!!!!!!";
                 isenabled = false;
+                if (currentturn == TurnEnum.Red)
+                {
+                    bluewins++;
+                }
+                else
+                {
+                    redwins++;
+                }
+                ScoreChanged?.Invoke(this, new EventArgs());
             }
         }
         private void FillSpots(List<Spot> list, Color turnscolor)

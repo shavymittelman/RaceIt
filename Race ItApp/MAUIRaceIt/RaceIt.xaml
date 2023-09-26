@@ -67,6 +67,12 @@
             <Label x:Name="lblBlue19" Grid.Column="5" Grid.Row="1"  BindingContext="{Binding lstspots[38]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
             <Label x:Name="lblBlue20" Grid.Column="5" Grid.Row="0"  BindingContext="{Binding lstspots[39]}" Text="{Binding spotvalue}" BackgroundColor="{Binding backcolormaui}"/>
 
+            <Grid Margin="25" Grid.Column="3" Grid.Row="2" Grid.RowSpan="6" BackgroundColor="LightGray" ColumnDefinitions="*" RowDefinitions="*,*,*,*">
+                <RadioButton x:Name="Game1Rb" Content="Game 1" CheckedChanged="Game_CheckedChanged" Grid.Column="0" Grid.Row="0" IsChecked="True"/>
+                <RadioButton x:Name="Game2Rb" Content="Game 2" CheckedChanged="Game_CheckedChanged" Grid.Column="0" Grid.Row="1"/>
+                <RadioButton x:Name="Game3Rb" Content="Game 3" CheckedChanged="Game_CheckedChanged" Grid.Column="0" Grid.Row="2"/>
+                <Label x:Name="ScoreLbl" Text="Red wins = 0 Blue wins = 0" Grid.Column="0" Grid.Row="3" FontFamily="OpenSans-Regular" FontSize="18"/>
+            </Grid>
         </Grid>
     </Grid>
 </ContentPage>
